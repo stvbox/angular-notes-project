@@ -1,0 +1,14 @@
+
+
+<div class="toolbar" >
+  <div class="btn-group-sm toolbar__actions" >
+      <a class="btn btn_primary" (click)="createNote();" >{{getAddBtnText()}}</a>
+  </div>
+  <div class="btn-group-sm filter-string" >
+      <input #phrase class="form-control form-control-sm" placeholder="поиск" />
+      <button class="btn btn_primary toolbar__serch-btn" (click)="setFilter({'phrase': phrase.value });" >найти</button>
+  </div>
+</div>
+
+<app-note-form *ngIf="flShowNoteForm"
+  (close)="onClose()" ></app-note-form>

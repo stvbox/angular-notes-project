@@ -1,0 +1,16 @@
+<form [formGroup]="formModel" class="note-form" >
+  <h3>Новая заметка</h3>
+  <input class="form-control form-control-sm note-form__input-field"
+    [ngClass]="{'note-form_error-field': !formModel.hasError('required','title')}"
+    formControlName="title" />
+    <p [hidden]="!(formModel.controls['title'].invalid && formModel.controls['title'].touched)" class="note-form_error-field-text" >заголов обязателен</p>
+  <br />
+  <textarea class="form-control form-control-sm note-form__input-field" formControlName="text" ></textarea>
+  <div>
+    <button class="btn btn_primary" [ngClass]="{'note-form__btn_hide': !formModel.valid}" (click)="saveNote()" >сохранить</button>
+    <button class="btn btn_primary" (click)="cancelInput()" >отмена</button>
+  </div>
+  <!--
+  {{formModel.value | json}}
+  -->
+</form>

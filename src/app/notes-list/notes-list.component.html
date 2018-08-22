@@ -1,0 +1,22 @@
+
+
+<div class="notes-list-wraper" >
+
+  <div class="notes-list" >
+      <div *ngFor="let note of getNotesList()" class="notes-list__item" >
+        <div>
+          <i (click)="checkNote(note.id)" class="fa fa-flag-checkered notes-list-wraper__chk-btn" [ngClass]="{'notes-list-wraper__chk-btn_checked': note.checked}" ></i>
+        </div>
+        <div>
+          <div class="notes-list__title" >{{note.title}}</div>
+          <div class="notes-list__id" >({{note.id}})</div>
+          <div class="notes-list__text" >
+              {{note.text}}
+              <!--<pre>{{note | json}}</pre>-->
+          </div>
+        </div>
+        <div style="text-align: center;" >
+            <i class="fas fa-trash notes-list-wraper__chk-btn notes-list-wraper__chk-btn_checked" (click)="removeNote(note.id)" ></i>
+        </div>
+  </div>
+</div>

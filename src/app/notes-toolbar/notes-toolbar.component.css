@@ -1,0 +1,18 @@
+.toolbar {
+    margin: 10px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+.toolbar__serch-btn {
+    margin-left: 10px;
+}
+
+.filter-string {
+    white-space: nowrap;
+}
+
+.toolbar__actions {
+    margin-right: 1rem;
+}
