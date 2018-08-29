@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DataStoreService } from '../data-store.service';
-import { FormGroup, FormControl } from '@angular/forms';
+import { NgrxStoreServiceService } from 'src/app/ngrx-store/ngrx-store-service.service';
 
 @Component({
   selector: 'app-notes-toolbar',
@@ -10,9 +9,10 @@ import { FormGroup, FormControl } from '@angular/forms';
 export class NotesToolbarComponent implements OnInit {
   flShowNoteForm = false;
 
-  constructor( private ds: DataStoreService ) { }
+  constructor( private ds: NgrxStoreServiceService ) { }
 
   ngOnInit() {
+
   }
 
   createNote() {

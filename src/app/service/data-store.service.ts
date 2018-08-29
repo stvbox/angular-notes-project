@@ -1,12 +1,7 @@
 import { Injectable } from '@angular/core';
 import * as uuid from 'uuid/v4';
-
-export class NoteItem {
-  id: string;
-  title: string;
-  text?: string;
-  checked?: boolean;
-}
+import { Unsubscribe } from 'redux';
+import { NoteItem } from './note-item';
 
 const data = {
   notes: [
@@ -36,6 +31,7 @@ export class DataStoreService {
   constructor() { }
 
   createNote(note: NoteItem): boolean {
+
     note.id = uuid();
     data.notes = [...data.notes];
     data.notes.push(note);
@@ -53,6 +49,14 @@ export class DataStoreService {
       }
     });
 
+  }
+
+  markNote(noteId: string) {
+    const note = this.getNote(noteId);
+    this.updateNote({
+      ...note,
+      checked: !note.checked
+    });
   }
 
   removeNote(noteId: string) {
@@ -90,5 +94,7 @@ export class DataStoreService {
   setFilter(params) {
     data.filter = { ...params };
   }
+
+  subscribe(lestener: any): Unsubscribe { return null; }
 
 }

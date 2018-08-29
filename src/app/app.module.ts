@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { NotesListComponent } from './notes-list/notes-list.component';
 import { NotesToolbarComponent } from './notes-toolbar/notes-toolbar.component';
 import { NoteFormComponent } from './note-form/note-form.component';
+import { NgrxStoreModule } from './ngrx-store/ngrx-store.module';
 
 @NgModule({
   declarations: [
@@ -15,9 +16,11 @@ import { NoteFormComponent } from './note-form/note-form.component';
     NoteFormComponent
   ],
   imports: [
-    BrowserModule, ReactiveFormsModule
+    BrowserModule, ReactiveFormsModule, NgrxStoreModule
   ],
-  providers: [],
+  providers: [
+    /*{ provide: DataStoreService, useClass: ReduxDataStoreService }*/
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
